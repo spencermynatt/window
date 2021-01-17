@@ -64,6 +64,18 @@ int main()
 	//which is array buffer
 	//finally gl static draw will send it to the graphics card
 	//--------------------------------------------------
+		//draw triangle
+  //this enables the data to travel through graphics pipeline
+	glEnableVertexAttribArray(0);//index where the shader will use
+	glVertexAttribPointer(0, 2, GL_FLOAT, GL_FALSE, 0, 0);
+	//2 is the how many floats per vertex, gl float is the type, 
+	//gl false is telling our graphics card not to touch our data,
+	glDrawArrays(GL_TRIANGLES, 0, 3);
+	//gl triangle specifies the type of shape,
+	//0 specifies the first triangle or which one we want to draw at
+	// 3 specifies how many vertices we're rendering
+}
+	
 }
 	
 	
