@@ -46,7 +46,32 @@ int main()
 	}
 	glfwTerminate();
 	return 0;
+	float vertices[] = {
+        -0.5f, -0.5f, 0.0f, // left  
+         0.5f, -0.5f, 0.0f, // right 
+         0.0f,  0.5f, 0.0f  // top   
+    };
 
+   unsigned int VBO;
+  
+    glGenBuffers(1, &VBO);
+ 
+    glBindBuffer(GL_ARRAY_BUFFER, VBO);
+    glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
+    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), (void*)0);
+      glGenVertexArrays(1, &VBO); //THESE TWO YOU FORGOT
+    glBindVertexArray(VBO); //
+	 glEnableVertexAttribArray(0);
+
+   
+    glBindBuffer(GL_ARRAY_BUFFER, 0);
+
+   
+    glBindVertexArray(0);
+	
+	
+
+	/*
 	GLfloat points[]
 	{  //x      y
 		0.0f, 1.0f,
@@ -55,7 +80,9 @@ int main()
 	};
 	//--------------------------------------------------
  unsigned int buffer_id; // empty place to store data
-
+	
+	
+	
 	glGenBuffers(1, &buffer_id); //generates one buffer,
 
 	glBindBuffer(GL_ARRAY_BUFFER, buffer_id); //sends it to another buffer or binds it
@@ -74,6 +101,7 @@ int main()
 	//gl triangle specifies the type of shape,
 	//0 specifies the first triangle or which one we want to draw at
 	// 3 specifies how many vertices we're rendering
+	*/
 }
 	
 }
